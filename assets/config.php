@@ -1,16 +1,17 @@
 <?php
-    $server = "localhost";
-   
-    $user = "root";
-    $password = "";
-    $db = "_sms";
-    
-    $conn = mysqli_connect($server, $user, $password, $db);
+$host = "mysql.railway.internal";
+$port = "3306"; // usually 3306
+$dbname = "railway";
+$username = "root";
+$password = "XPGoBZqZdxZglWrCJRtDFLefzZLSgwaY";
 
-    if (!$conn) {
-        header('Location: ../errors/error.html');
-        exit();
-    }
+$conn = new mysqli($host, $username, $password, $dbname, $port);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+echo "Connected successfully!";
 
 
 ?>
